@@ -16,4 +16,4 @@
 
 
 ### UML
-![uml](storefront/uml.png)
+![uml](uml.png)
