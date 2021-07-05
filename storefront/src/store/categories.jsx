@@ -4,7 +4,7 @@ let initialState = {
     {
       normalizedName: 'FOOD',
       displayName: 'FOOD',
-      description: 'Add some sweetness to your bitter life'
+      description: 'Add some sweetness to your life'
     },
     {
       normalizedName: 'ELECTRONICS',
@@ -18,34 +18,23 @@ let initialState = {
   activeCategory: {}
 };
 
-const categoryReducer = (state = initialState, action) => {
-  let { type, payload } = action;
 
-  switch (type) {
-    case 'ALL_CATEGORY':
-      let activeCategory = payload;
-      let categories = initialState.categories;
-      return { activeCategory, categories };
+const  categories  = (state = initialState, action) => {
+	let { type, payload } = action;
+	switch (type) {
+		case 'ACTIVE':
+			let activeCategories = initialState.categories.find((category) => category.name === payload);
+			return { categories: initialState.categories, activeCategories };
+		default:
+			return state;
+	}
+};
 
-    case 'RESET':
-      return initialState;
+export default  categories ;
 
-    default:
-      return state;
-  }
-}
-
-export const handleActiveCategory = (category) => {
-  return {
-    type: 'ALL_CATEGORY',
-    payload: category
-  }
-}
-
-export const reset = () => {
-  return {
-    type: 'RESET'
-  }
-}
-
-export default categoryReducer;
+export const active = (name) => {
+	return {
+		type: 'ACTIVE',
+		payload: name,
+	};
+};

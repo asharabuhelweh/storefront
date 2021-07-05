@@ -23,11 +23,11 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar style={{'background' : 'white' , 'color' : 'gray'}} position="static">
         <Toolbar>
           
-          <Typography variant="h6" className={classes.title}>
-          We Will Find A Way Store
+          <Typography style={{'color':'black', 'opacity':'0.7'}} variant="h6" className={classes.title}>
+          Magic Store
           </Typography>
           <Button color="inherit">Cart(0)</Button>
         </Toolbar>
